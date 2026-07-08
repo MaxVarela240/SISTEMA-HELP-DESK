@@ -456,8 +456,17 @@ p a:hover {
 .estado-proceso   { background-color: var(--color-advertencia-fondo); color: var(--color-advertencia); }
 .estado-resuelto  { background-color: var(--color-exito-fondo);       color: var(--color-exito); }
 
+/* Contenedor que permite desplazar la tabla horizontalmente
+   en pantallas pequeñas sin romper el layout */
+.tabla-contenedor {
+    overflow-x: auto;
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-suave);
+}
+
 .tabla {
     width: 100%;
+    min-width: 560px;
     border-collapse: collapse;
     background-color: var(--color-superficie);
     border-radius: var(--radio-borde);

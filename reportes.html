@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Desk - Reportar Incidente</title>
+
+    <!-- Tipografías corporativas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Hoja de estilos del UI Kit (Design System) -->
+    <link rel="stylesheet" href="ui-kit/style.css">
+</head>
+<body>
+
+    <header class="encabezado">
+        <h1>Sistema de Gestión de Incidentes - Help Desk</h1>
+        <p>Universidad Técnica de Manabí</p>
+    </header>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Inicio (Dashboard)</a></li>
+            <li><a href="reportes.html" class="activo">Reportar Incidente</a></li>
+            <li><a href="tickets.html">Ver Tickets</a></li>
+        </ul>
+    </nav>
+
+    <main class="contenido">
+        <section class="seccion">
+            <h2>Reportar un Nuevo Incidente</h2>
+            <p>Por favor, complete el siguiente formulario detallando el problema para que nuestro equipo técnico pueda asistirle.</p>
+            <br>
+
+            <form class="formulario" action="#" method="POST">
+
+                <div class="grupo-campo">
+                    <label id="titulo-label" for="titulo">Título del Incidente:</label>
+                    <input type="text" id="titulo" name="titulo" required placeholder="Ej. No funciona la impresora">
+                    <p class="texto-ayuda">Escriba un título corto y descriptivo del problema.</p>
+                </div>
+
+                <div class="grupo-campo">
+                    <label id="categoria-label" for="categoria">Categoría:</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="">-- Seleccione una opción --</option>
+                        <option value="red">Red</option>
+                        <option value="hardware">Hardware</option>
+                        <option value="software">Software</option>
+                    </select>
+                </div>
+
+                <div class="grupo-campo">
+                    <span id="prioridad-label" class="etiqueta">Nivel de Prioridad:</span>
+                    <div class="opcion-radio">
+                        <input type="radio" id="alta" name="prioridad" value="alta" required>
+                        <label for="alta">Alta</label>
+                    </div>
+                    <div class="opcion-radio">
+                        <input type="radio" id="media" name="prioridad" value="media">
+                        <label for="media">Media</label>
+                    </div>
+                    <div class="opcion-radio">
+                        <input type="radio" id="baja" name="prioridad" value="baja">
+                        <label for="baja">Baja</label>
+                    </div>
+                </div>
+
+                <div class="grupo-campo">
+                    <label id="descripcion-label" for="descripcion">Descripción detallada:</label>
+                    <textarea id="descripcion" name="descripcion" rows="5" required placeholder="Describa el problema detalladamente..."></textarea>
+                </div>
+
+                <div class="acciones-formulario">
+                    <button type="submit" class="btn btn-primario">Enviar Reporte</button>
+                    <button type="reset" class="btn btn-contorno">Limpiar Formulario</button>
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <p>&copy; 2026 - Desarrollo de Sistemas Informáticos. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
