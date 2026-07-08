@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Kit - Sistema Help Desk</title>
+
+    <!-- Tipografías corporativas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Hoja de estilos del Design System -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="encabezado">
+        <h1>UI Kit — Sistema de Gestión de Incidentes</h1>
+        <p>Librería de Componentes Visuales (Design System) · Universidad Técnica de Manabí</p>
+    </header>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="#botones" class="activo">Botones</a></li>
+            <li><a href="#formularios">Formularios</a></li>
+            <li><a href="#tarjetas">Tarjetas</a></li>
+            <li><a href="#alertas">Alertas</a></li>
+            <li><a href="#tablas">Tablas y Estados</a></li>
+        </ul>
+    </nav>
+
+    <main class="contenido">
+
+        <!-- ================= BOTONES ================= -->
+        <section id="botones" class="seccion">
+            <h2>Botones</h2>
+            <p>Clase base <code>.btn</code> con variantes de color y tamaño definidas a partir de las variables de la paleta corporativa.</p>
+            <br>
+            <div class="grupo-botones">
+                <button class="btn btn-primario">Primario</button>
+                <button class="btn btn-secundario">Secundario</button>
+                <button class="btn btn-exito">Éxito</button>
+                <button class="btn btn-peligro">Peligro</button>
+                <button class="btn btn-contorno">Contorno</button>
+                <button class="btn btn-primario" disabled>Deshabilitado</button>
+            </div>
+            <br>
+            <div class="grupo-botones">
+                <button class="btn btn-primario btn-pequeno">Botón pequeño</button>
+                <button class="btn btn-primario">Botón normal</button>
+                <button class="btn btn-primario btn-grande">Botón grande</button>
+            </div>
+        </section>
+
+        <!-- ================= FORMULARIOS ================= -->
+        <section id="formularios" class="seccion">
+            <h2>Formularios</h2>
+            <p>Componentes de entrada de datos estilizados para el registro de incidentes.</p>
+            <br>
+            <form class="formulario" action="#" method="POST">
+
+                <div class="grupo-campo">
+                    <label for="titulo">Título del Incidente:</label>
+                    <input type="text" id="titulo" name="titulo" required placeholder="Ej. No funciona la impresora">
+                    <p class="texto-ayuda">Escriba un título corto y descriptivo.</p>
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="categoria">Categoría:</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="">-- Seleccione una opción --</option>
+                        <option value="red">Red</option>
+                        <option value="hardware">Hardware</option>
+                        <option value="software">Software</option>
+                    </select>
+                </div>
+
+                <div class="grupo-campo">
+                    <span class="etiqueta">Nivel de Prioridad:</span>
+                    <div class="opcion-radio">
+                        <input type="radio" id="alta" name="prioridad" value="alta" required>
+                        <label for="alta">Alta</label>
+                    </div>
+                    <div class="opcion-radio">
+                        <input type="radio" id="media" name="prioridad" value="media">
+                        <label for="media">Media</label>
+                    </div>
+                    <div class="opcion-radio">
+                        <input type="radio" id="baja" name="prioridad" value="baja">
+                        <label for="baja">Baja</label>
+                    </div>
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="descripcion">Descripción detallada:</label>
+                    <textarea id="descripcion" name="descripcion" rows="5" required placeholder="Describa el problema detalladamente..."></textarea>
+                </div>
+
+                <div class="acciones-formulario">
+                    <button type="submit" class="btn btn-primario">Enviar Reporte</button>
+                    <button type="reset" class="btn btn-contorno">Limpiar Formulario</button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- ================= TARJETAS (CARDS) ================= -->
+        <section id="tarjetas" class="seccion">
+            <h2>Tarjetas (Cards)</h2>
+            <p>Tarjetas de resumen para el dashboard del sistema, con variantes de color según el estado de los tickets.</p>
+            <div class="contenedor-tarjetas">
+                <article class="tarjeta tarjeta-abierto">
+                    <h3>Tickets Abiertos</h3>
+                    <span class="cifra">5</span>
+                    <p>Incidentes en espera de atención.</p>
+                </article>
+                <article class="tarjeta tarjeta-proceso">
+                    <h3>Tickets en Proceso</h3>
+                    <span class="cifra">3</span>
+                    <p>Incidentes siendo atendidos por soporte.</p>
+                </article>
+                <article class="tarjeta tarjeta-resuelto">
+                    <h3>Tickets Resueltos</h3>
+                    <span class="cifra">12</span>
+                    <p>Incidentes cerrados en esta semana.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ================= ALERTAS ================= -->
+        <section id="alertas" class="seccion">
+            <h2>Alertas</h2>
+            <p>Mensajes de retroalimentación al usuario después de realizar una acción en el sistema.</p>
+            <br>
+            <div class="alerta alerta-exito">
+                <strong>Éxito</strong>
+                El ticket #004 fue registrado correctamente y asignado al equipo de soporte.
+            </div>
+            <div class="alerta alerta-info">
+                <strong>Información</strong>
+                El mantenimiento programado del servidor será el viernes a las 20:00.
+            </div>
+            <div class="alerta alerta-advertencia">
+                <strong>Advertencia</strong>
+                El ticket #002 lleva más de 48 horas sin ser atendido.
+            </div>
+            <div class="alerta alerta-peligro">
+                <strong>Error</strong>
+                No se pudo enviar el reporte. Verifique los campos obligatorios e intente de nuevo.
+            </div>
+        </section>
+
+        <!-- ================= TABLAS Y ETIQUETAS DE ESTADO ================= -->
+        <section id="tablas" class="seccion">
+            <h2>Tablas y Etiquetas de Estado</h2>
+            <p>Tabla estilizada para el listado de tickets, con etiquetas (badges) que indican el estado de cada incidente.</p>
+            <br>
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>ID Ticket</th>
+                        <th>Título del Incidente</th>
+                        <th>Categoría</th>
+                        <th>Prioridad</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#001</td>
+                        <td>Fallo de conexión Wi-Fi en el aula 3</td>
+                        <td>Red</td>
+                        <td>Alta</td>
+                        <td><span class="etiqueta-estado estado-proceso">En proceso</span></td>
+                    </tr>
+                    <tr>
+                        <td>#002</td>
+                        <td>Pantalla azul al iniciar PC de secretaría</td>
+                        <td>Hardware</td>
+                        <td>Media</td>
+                        <td><span class="etiqueta-estado estado-abierto">Abierto</span></td>
+                    </tr>
+                    <tr>
+                        <td>#003</td>
+                        <td>Error de licencia en software de base de datos</td>
+                        <td>Software</td>
+                        <td>Baja</td>
+                        <td><span class="etiqueta-estado estado-resuelto">Resuelto</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <footer class="pie">
+        <p>&copy; 2026 - Desarrollo de Sistemas Informáticos. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
