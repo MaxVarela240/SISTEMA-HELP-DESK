@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Desk - Reportar Incidente</title>
+</head>
+<body>
+
+    <header>
+        <h1>Sistema de Gestión de Incidentes - Help Desk</h1>
+        <p>Universidad Técnica de Manabí</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio (Dashboard)</a></li>
+            <li><a href="reportes.html">Reportar Incidente</a></li>
+            <li><a href="tickets.html">Ver Tickets</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Reportar un Nuevo Incidente</h2>
+            <p>Por favor, complete el siguiente formulario detallando el problema para que nuestro equipo técnico pueda asistirle.</p>
+            
+            <form action="#" method="POST">
+                
+                <div>
+                    <label id="titulo-label" for="titulo">Título del Incidente:</label>
+                    <input type="text" id="titulo" name="titulo" required placeholder="Ej. No funciona la impresora">
+                </div>
+                <br>
+
+                <div>
+                    <label id="categoria-label" for="categoria">Categoría:</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="">-- Seleccione una opción --</option>
+                        <option value="red">Red</option>
+                        <option value="hardware">Hardware</option>
+                        <option value="software">Software</option>
+                    </select>
+                </div>
+                <br>
+
+                <div>
+                    <span id="prioridad-label">Nivel de Prioridad:</span><br>
+                    <input type="radio" id="alta" name="prioridad" value="alta" required>
+                    <label for="alta">Alta</label><br>
+                    
+                    <input type="radio" id="media" name="prioridad" value="media">
+                    <label for="media">Media</label><br>
+                    
+                    <input type="radio" id="baja" name="prioridad" value="baja">
+                    <label for="baja">Baja</label>
+                </div>
+                <br>
+
+                <div>
+                    <label id="descripcion-label" for="descripcion">Descripción detallada:</label><br>
+                    <textarea id="descripcion" name="descripcion" rows="5" cols="40" required placeholder="Describa el problema detalladamente..."></textarea>
+                </div>
+                <br>
+
+                <div>
+                    <button type="submit">Enviar Reporte</button>
+                    <button type="reset">Limpiar Formulario</button>
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Desarrollo de Sistemas Informáticos. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
