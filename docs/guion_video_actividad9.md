@@ -60,84 +60,100 @@ Pega ese enlace en el documento `Varela_Max_Actividad9.docx`, reemplazando el te
 
 ---
 
+## Cómo leer cada sección de aquí en adelante
+
+Cada parte del guion tiene dos bloques, siempre en el mismo orden:
+
+- **🎬 QUÉ HACER** → son instrucciones para ti, el operador (dónde hacer clic, qué mostrar en pantalla). **Esto NO se dice en voz alta**, es solo tu guía visual mientras grabas.
+- **🗣️ QUÉ DECIR** → es el texto entre comillas que sí hablas frente a la cámara, con tus propias palabras (no hace falta memorizarlo exacto, solo la idea).
+
+---
+
 ## 1. Introducción (30-40 seg)
 
-> "Hola, mi nombre es Max Varela, estudiante de Tecnologías de la Información en Línea, quinto semestre. Este es el video de sustentación de la Actividad #9: el proyecto final de Desarrollo de Sistemas Informáticos — un sistema de gestión de incidentes tipo Help Desk, con frontend, backend y base de datos desplegados en la nube."
+**🎬 QUÉ HACER:**
+- Cámara/rostro visible en pantalla completa (sin compartir aún ninguna ventana de código o navegador).
 
-(Muestra tu rostro a cámara durante esta parte, como pide la guía.)
+**🗣️ QUÉ DECIR:**
+> "Hola, mi nombre es Max Varela, estudiante de Tecnologías de la Información en Línea, quinto semestre. Este es el video de sustentación de la Actividad #9: el proyecto final de Desarrollo de Sistemas Informáticos — un sistema de gestión de incidentes tipo Help Desk, con frontend, backend y base de datos desplegados en la nube."
 
 ---
 
 ## 2. Arquitectura general (1 min)
 
-> "El sistema tiene tres capas desplegadas de forma independiente en la nube:
-> - El **frontend**, una SPA (Single Page Application) hecha en HTML, CSS y JavaScript puro, organizada en tres componentes: Dashboard, Formulario y Lista de tickets.
-> - El **backend**, una API REST construida con Node.js y Express, que expone operaciones CRUD para los tickets.
-> - La **base de datos**, en MongoDB Atlas, en la nube, sin depender de ningún servidor local.
->
-> El frontend consume la API mediante peticiones HTTP asíncronas mediante `fetch`, y la API se comunica con MongoDB Atlas mediante Mongoose."
+**🎬 QUÉ HACER:**
+- Puedes seguir con tu rostro en pantalla completa, o si tienes un diagrama simple dibujado (Frontend en Vercel → API REST en Render → MongoDB Atlas), muéstralo ahora. No es obligatorio, es opcional.
 
-(Aquí puedes mostrar un diagrama simple: Frontend (Vercel) → API REST (Render) → MongoDB Atlas.)
+**🗣️ QUÉ DECIR:**
+> "El sistema tiene tres capas desplegadas de forma independiente en la nube: el frontend, una SPA hecha en HTML, CSS y JavaScript puro, organizada en tres componentes — Dashboard, Formulario y Lista de tickets; el backend, una API REST construida con Node.js y Express, que expone operaciones CRUD para los tickets; y la base de datos, en MongoDB Atlas, en la nube, sin depender de ningún servidor local. El frontend consume la API mediante peticiones HTTP asíncronas con fetch, y la API se comunica con MongoDB Atlas mediante Mongoose."
 
 ---
 
 ## 3. Recorrido del código (2-3 min)
 
-Abre tu editor de código (VS Code) y muestra:
+**🎬 QUÉ HACER:**
+- Cambia a la ventana de **VS Code**.
+- Abre y muestra brevemente, en este orden: `backend/src/models/Ticket.js` → `backend/src/controllers/ticketController.js` → `backend/src/routes/tickets.js` → `backend/src/server.js`.
+- Luego cambia a: `frontend/js/config.js` → `frontend/js/api.js` → `frontend/js/dashboard.js` (o cualquiera de las vistas) → `frontend/js/app.js`.
+- No necesitas leer el código línea por línea, solo señala con el cursor las partes que menciones al hablar.
 
-1. **Backend** (`backend/src`):
-   - `models/Ticket.js`: el esquema de Mongoose — explica los campos (`titulo`, `descripcion`, `solicitante`, `categoria`, `prioridad`, `estado`) y los enums.
-   - `controllers/ticketController.js`: la lógica de cada endpoint (listar, obtener, crear, actualizar, eliminar).
-   - `routes/tickets.js`: cómo las rutas conectan HTTP con los controladores.
-   - `config/db.js` y `server.js`: la conexión a MongoDB vía variable de entorno `MONGODB_URI` y el arranque del servidor Express.
+**🗣️ QUÉ DECIR (mientras muestras el backend):**
+> "Aquí pueden ver que separé el código en modelos, controladores y rutas, siguiendo el patrón MVC para que sea mantenible. En el modelo defino los campos del ticket: título, descripción, solicitante, categoría, prioridad y estado. El controlador tiene la lógica de cada operación: listar, crear, actualizar y eliminar. Y las rutas conectan cada endpoint HTTP con su función correspondiente. El servidor se conecta a MongoDB usando una variable de entorno."
 
-   > "Aquí pueden ver que separé el código en modelos, controladores y rutas, siguiendo el patrón MVC para que sea mantenible."
-
-2. **Frontend** (`frontend/js`):
-   - `config.js`: la URL de la API centralizada en una constante.
-   - `api.js`: el módulo que encapsula todas las llamadas `fetch` a la API.
-   - `dashboard.js`, `formulario.js`, `lista.js`: cada uno maneja su propia vista.
-   - `app.js`: el router simple que cambia entre vistas.
-
-   > "El frontend está modularizado por componente: Dashboard muestra estadísticas generales, Formulario permite crear tickets, y Lista permite verlos, cambiar su estado o eliminarlos, todo consumiendo la misma API REST."
+**🗣️ QUÉ DECIR (mientras muestras el frontend):**
+> "El frontend está modularizado por componente: Dashboard muestra estadísticas generales, Formulario permite crear tickets, y Lista permite verlos, cambiar su estado o eliminarlos, todo consumiendo la misma API REST a través de este módulo centralizado que encapsula las llamadas fetch."
 
 ---
 
 ## 4. Demostración en vivo (2 min)
 
-Cambia a la **pestaña 1** que dejaste lista (`https://sistema-help-desk-green.vercel.app`). Sigue estos clics exactos:
-
-1. La página abre en **Dashboard**. Señala con el mouse las 4 tarjetas (Total, Abiertos, En progreso, Cerrados) y di: "aquí vemos el resumen en tiempo real, actualmente hay algunos tickets ya cargados de pruebas anteriores."
-2. Clic en el botón **"Nuevo Ticket"** (arriba, en el menú azul).
-3. Llena el formulario en vivo, hablando mientras escribes:
+**🎬 QUÉ HACER:**
+1. Cambia a la **pestaña 1** del navegador (`https://sistema-help-desk-green.vercel.app`). Debe abrir en Dashboard.
+2. Clic en **"Nuevo Ticket"** (menú azul, arriba).
+3. Llena el formulario mientras hablas:
    - Título: `Impresora sin conexión en oficina 2`
    - Solicitante: tu nombre
    - Descripción: cualquier frase corta
-   - Categoría: elige "Hardware"
-   - Prioridad: elige "Alta"
-4. Clic en **"Crear ticket"**. El sistema te lleva automáticamente a la Lista.
-5. En **"Lista de Tickets"**, señala la fila que acabas de crear. Di: "este ticket ya está guardado en MongoDB Atlas, en la nube."
-6. En esa misma fila, clic en el desplegable de **Estado** y cámbialo de "Abierto" a **"En Progreso"**. Espera el mensaje de confirmación (toast) que aparece abajo a la derecha.
-7. Clic en el botón **"Dashboard"** (arriba) para volver. Señala que las tarjetas de "Abiertos" y "En progreso" cambiaron su número.
-8. (Opcional, si te sobra tiempo) Vuelve a Lista y haz clic en **"Eliminar"** en el ticket de prueba, confirma en el diálogo, para mostrar también el borrado.
+   - Categoría: "Hardware"
+   - Prioridad: "Alta"
+4. Clic en **"Crear ticket"** (te lleva automáticamente a la Lista).
+5. Señala con el mouse la fila del ticket recién creado.
+6. Clic en el desplegable de **Estado** de esa fila → cámbialo a **"En Progreso"**. Espera el mensaje de confirmación abajo a la derecha.
+7. Clic en **"Dashboard"** (arriba) para volver. Señala que las tarjetas cambiaron de número.
+8. *(Opcional, si te sobra tiempo)* Vuelve a Lista, clic en **"Eliminar"** en el ticket de prueba, confirma en el diálogo.
 
-> "Como pueden ver, toda esta información se está guardando en tiempo real en MongoDB Atlas, en la nube, y el servidor que la procesa está corriendo en Render — no hay nada corriendo en mi computadora."
+**🗣️ QUÉ DECIR (al llegar al Dashboard, paso 1):**
+> "Aquí vemos el resumen en tiempo real; actualmente hay algunos tickets ya cargados de pruebas anteriores."
+
+**🗣️ QUÉ DECIR (al crear el ticket, pasos 2-4):**
+> Puedes narrar en voz alta lo que vas escribiendo, por ejemplo: "Voy a crear un nuevo ticket: título 'impresora sin conexión', categoría hardware, prioridad alta, y lo envío."
+
+**🗣️ QUÉ DECIR (al verlo en la lista, paso 5):**
+> "Este ticket ya está guardado en MongoDB Atlas, en la nube."
+
+**🗣️ QUÉ DECIR (al cambiar el estado y volver al Dashboard, pasos 6-7):**
+> "Como pueden ver, toda esta información se está guardando en tiempo real en MongoDB Atlas, y el servidor que la procesa está corriendo en Render — no hay nada corriendo en mi computadora."
 
 ---
 
 ## 5. Repositorios y despliegue (1 min)
 
-> "El código está organizado en un único repositorio de GitHub con dos carpetas, `backend` y `frontend`, siguiendo un flujo de ramas con `feature branches`, `develop` y `main`. El backend está desplegado en Render, conectado a un cluster gratuito de MongoDB Atlas, y el frontend está desplegado como sitio estático en Vercel."
+**🎬 QUÉ HACER:**
+1. Cambia a la **pestaña 2** (GitHub): muestra la lista de archivos y, si quieres, entra a "commits" para mostrar el historial.
+2. Cambia a la **pestaña 3** (Render): muestra que el servicio `helpdesk-backend` dice **"Live"** en verde.
+3. Cambia a la **pestaña 4** (Vercel): muestra que el proyecto tiene un deployment marcado como **"Ready"**.
 
-Ve cambiando de pestaña mientras hablas:
-1. **Pestaña 2** (GitHub): muestra la lista de archivos, y si quieres, clic en "commits" para mostrar el historial con los mensajes `feat(backend)...`, `feat(frontend)...`.
-2. **Pestaña 3** (Render): muestra que el servicio `helpdesk-backend` dice **"Live"** en verde.
-3. **Pestaña 4** (Vercel): muestra que el proyecto `sistema-help-desk` tiene un deployment marcado como **"Ready"** / con el check verde.
+**🗣️ QUÉ DECIR (puedes hablar mientras cambias entre las 3 pestañas):**
+> "El código está organizado en un único repositorio de GitHub con dos carpetas, backend y frontend, siguiendo un flujo de ramas con feature branches, develop y main. El backend está desplegado en Render, conectado a un cluster gratuito de MongoDB Atlas, y el frontend está desplegado como sitio estático en Vercel."
 
 ---
 
 ## 6. Cierre (20-30 seg)
 
+**🎬 QUÉ HACER:**
+- Vuelve a mostrar tu rostro en pantalla completa (cierra o minimiza las ventanas de código/navegador).
+
+**🗣️ QUÉ DECIR:**
 > "Con esto concluyo la sustentación de la Actividad #9. El sistema completo — frontend, backend y base de datos — está funcionando de manera integrada y desplegado en la nube, cumpliendo con los requisitos de la actividad. Muchas gracias."
 
 ---
